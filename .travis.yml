@@ -9,8 +9,8 @@ script:
           
 deploy:   
         provider: script
-        script:
-               heroku container:push web --recursive
+        script: 
+               heroku container:push web --recursive --app pure-meadow-08274
                heroku container:release web --app pure-meadow-08274
         on:
           branch: aabhusan
