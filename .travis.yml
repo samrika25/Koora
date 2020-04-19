@@ -5,7 +5,7 @@ services:
 
 script:
         - docker build -t koora:v1 .
-        - docker tag koora  registry.heroku.com/pure-meadow-08274/web
+        - docker tag koora:v1  registry.heroku.com/pure-meadow-08274/web
         - curl https://cli-assets.heroku.com/install.sh | sh  #install heroku
         - docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com  
           
