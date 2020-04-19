@@ -4,13 +4,15 @@ services:
         - docker
 
 script:
+        - docker build -t koora:v1 .
+        - docker tag koora 
         - curl https://cli-assets.heroku.com/install.sh | sh  #install heroku
         - docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com  
           
 deploy:   
         provider: script
         script:
-               heroku container:push web -a pure-meadow-08274 
-               heroku container:release web -a pure-meadow-08274
+               heroku container:push web --app pure-meadow-08274 
+               heroku container:release web --app pure-meadow-08274
         on:
           branch: aabhusan
